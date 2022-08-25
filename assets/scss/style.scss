@@ -1,0 +1,610 @@
+/* 
+Prioritas CSS
+      1. important -> ! (not recomendation)
+      2. inline selector 1 0 0 0
+      3. ID selector 0 1 0 0
+      4. Class selector 0 0 1 0
+      5. Tag HTML 0 0 0 1
+
+Selector
+1. Css simple selector : tag html, id, class
+2. CSS combinators : group, child (>), adjacent siblings(+), general siblings(~)
+3. Pseudo-class selector -> . ::before, ::after, :hover
+4. Pseudo-element selector -> h1, div, a dll
+*/
+
+$font-stack: sans-serif;
+$primary-color: #42a5f5;
+$secondary-color: #ab47bc;
+$enigma-primary-color: #233d90;
+$margin-top: 20px;
+$margin-bottom: 50px;
+$margin-left: 50px;
+$margin-right: 50px;
+
+// CSS Simple Selector Universal *
+* {
+    margin: 0; // Top Right Bottom Left
+    padding: 0;
+    font-family: $font-stack;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    font-family: $font-stack;
+    // background-color: #CFE8A9;  
+}
+
+// CSS Simple Selector - Tag
+// h1 {
+//     color: $primary-color;
+// }
+
+// h2 {
+//     color: $secondary-color;
+// }
+
+// CSS Simple Selector - ID (only 1)
+#heading2 {
+    color: $primary-color;
+}
+
+// CSS Simple Selector - Class
+
+.center {
+    text-align: center;
+}
+
+.large {
+    font-size: 3rem;
+}
+
+.text-primary {
+    color: #fff;
+}
+
+//CSS Simple Selector
+h2.large {
+    font-size: 2rem;
+}
+
+// Beda descendant dengan child
+// descendant itu ngaruh ke semua anak cucu di dalam nya,
+// child itu cuman ngaruh ke anaknya
+// CSS Combinators : descendant selector (space)
+div img { //ini hanya berlaku di dalam div
+    display: block; //Index bersifat tidak block, makanya dikasih display block biar dia maksa apa yg ada setelahnya akan ada di bawah
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $margin-top;
+    width: 50%;
+}
+
+// CSS Combinators - Child
+h1 > span {
+    color: $secondary-color;
+}
+
+// // CSS combinators - Adjacent Sibling Selector (+)
+// // p pertama setelah div
+// div + p {
+//     font-size: 1rem;
+//     background-color: bisque;
+//     color: blueviolet;
+//     margin: 10px;
+// }
+
+// // CSS combinators - General Sibling Selector (~)
+// // semua p setelah div
+// div ~ p {
+//     font-size: 1rem;
+//     background-color: blue;
+//     color: yellow;
+//     margin: 10px;
+// }
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(https://www.arenalaptop.com/wp-content/uploads/2018/12/Laptop-Untuk-Programmer.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background-color: $enigma-primary-color;
+    color: #fff;
+    padding: 35px 0;
+    margin: auto;
+    // styling
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+}
+
+#sticky {
+    position:fixed;
+    top : 0;
+    width: 100%;
+}
+
+#nav {
+    position: fixed;
+}
+
+.navbar-logo {
+    font-size: 2rem;
+    margin-left: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    float: left;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase; //memaksa jadi uppercase
+}
+
+// CSS Pseudo-classes
+
+.navbar ul li::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    background: #18a1fc;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+
+
+
+// // Pseudo-class after
+// // Memberikan sebuah konten setelah h2
+// h2::after {
+//    content: '%';
+// }
+
+// //Pseudo-class before
+// // Memberikan sebuah konten sebelum h2
+// h2::before {
+//     content: '%';
+// }
+
+section {
+    margin-top: 5%;
+}
+
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+}
+
+.content h1 {
+    font-family: 'Satisfy';
+    font-size: 4rem;
+}
+
+.content p{
+    text-align: center;
+    margin: 60px auto;
+    line-height: 25px;
+    font-weight: 100;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.col-6 {
+    width: 50%;
+    height: 50vh;
+    background-color: $primary-color;
+    color: #fff;
+}
+
+.bg-primary {
+    background-color: $primary-color;
+}
+
+.bg-secondary {
+    background-color: $secondary-color;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  transition: 0.5s;
+  margin: auto;
+  transition:  box-shadow .6s ease-out;
+  object-fit: cover;
+  
+}
+
+.card:hover{ 
+  box-shadow: 1px 8px 20px grey;
+ transition:  box-shadow .6s ease-in;
+}
+
+.card img {
+  width: 300px;
+}
+
+.card-body {
+  padding: 2px 16px;
+}
+
+.card-body h4 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.card-body p {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 30px;
+}
+
+.type-learn {
+  display: flex;
+    justify-content: space-between;
+    width: 86%;
+    margin-top: 40px;
+    
+}
+
+.learn h1 {
+  font-size: 2.5rem;
+}
+
+.left-learn{
+  padding-left: 150px;
+}
+
+
+.container-grid {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    "about contact"
+    "about contact"
+    "footer footer";
+    grid-template-columns: 50% 50%;
+    
+    background-color: #070d22;
+    color: #98a5b8;
+    padding: 0;
+    overflow: hidden;
+    background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(https://img.freepik.com/free-vector/color-seamless-space-pattern_102902-2360.jpg?w=2000);
+    justify-content: space-between;
+}
+
+.about-us {
+    grid-area: about;
+    text-align: justify;
+}
+
+.about-us h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Satisfy';
+    font-size: 2.5rem;
+    padding-top: 20px;
+}
+
+.about-us p {
+    line-height: 30px;
+    padding: 15px 30px;
+}
+
+
+.contact-us {
+    padding-left: 50px;
+    grid-area: contact; 
+}
+
+.contact-us h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Satisfy';
+    font-size: 2.5rem;    
+    padding-top: 20px;
+}
+
+.isi-contact {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.isi-contact a {
+    text-decoration: none;
+    color: #98a5b8;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #98a5b8;
+  }
+  
+  .footer {
+    grid-area: footer;
+    width: 100%;
+    text-align: center;
+    color: $primary-color;
+    bottom: 0;
+    padding: 100px 0px 30px;
+    
+  }
+
+  .container-porto {
+    margin: 100px auto;
+    display: grid;
+    width: 80%;
+    grid-template-areas: 
+    "left-top left-top left-top right"
+    "left-mid mid-mid mid-right right"
+    "bottom-left bottom-mid bottom-right right"
+    "left-bottom mid-bottom right-bottom right";
+    justify-content: center;
+    grid-template-columns: 22% 22% 22% 34%;
+    background-color: #fff;
+    
+    
+  }
+
+  .body-portofolio {
+    background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(https://img.freepik.com/free-vector/color-seamless-space-pattern_102902-2360.jpg?w=2000);
+  }
+
+  .container-porto{
+    font-size: 18px;
+  }
+
+  .title h1 {
+    font-family: 'Satisfy';
+  }
+
+  .left-barside{
+    grid-area: left-top;
+  }
+
+  .left-bar {
+    padding-top: 15%;
+  }
+
+  .left-bar .left-side{
+    padding-left: 20px;
+  }
+
+  .first-content h4{
+    padding-top: 20px;
+  }
+
+  .first-content p {
+    padding-top: 10px;
+  } 
+
+  .left-bar .left-side h2{
+    border-bottom: 2px solid black;
+  }
+  .second-content h4 {
+    padding-top: 30px;
+  }
+
+  .second-content p {
+    padding-top: 10px;
+  }
+
+  
+
+  .third-content {
+    padding-top: 8px;
+    padding-left: 20px;
+  }
+
+  .third-content p {
+    padding-top: 10px;
+  }
+
+  .fourth-content  {
+    padding-top: 55px;
+    padding-left: 20px;
+  }
+
+  .fourth-content p {
+    padding-top: 10px;
+  }
+
+
+  .fifth-content {
+    padding-top: 51px;
+  }
+
+  .fifth-content p {
+    padding-top: 10px;
+  }
+  
+  .sixth-content h2 {
+    border-bottom: 2px solid black;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+
+  .sixth-content ul li {
+    padding : 10px 10px
+  }
+
+  .right-bar {
+    background-color: blue;
+    padding: 20px 20px;
+    grid-area: right;
+  }
+
+  .right-bar p {
+    font-size: 20px;
+    color: white;
+  }
+
+  .mid-left {
+    grid-area: left-mid;
+    padding-left: 20px;
+    
+  }
+
+  .mid-left h2 {
+    border-bottom: 2px solid black;
+    margin-top: 30px;
+  }
+
+  .mid-mid{
+    grid-area: mid-mid;
+  }
+
+  .first-ul {
+    margin-top: 60px;
+  }
+
+  .sixth-content {
+    padding-left: 8%;
+  }
+
+  .mid-right{
+    grid-area: mid-right;
+  }
+  
+  .bottom-left{
+    grid-area: bottom-left;
+    padding-left: 20px;
+  }
+
+  .bottom-left h2 {
+    border-bottom: 2px solid black;
+    margin-top: 30px;
+  }
+
+  .seventh-content  {
+    padding-top: 20px;
+  }
+
+  .seventh-content p {
+    padding-top: 10px;
+  }
+
+  .eight-content {
+    padding-top: 82px;
+  }
+  
+  .eight-content p {
+    padding-top: 10px;
+  }
+
+  .nine-content {
+    padding-top: 84px;
+  }
+
+  .nine-content p {
+    padding-top: 10px;
+  }
+
+  .tenth-content {
+    padding-top: 20px;
+  }
+
+  .tenth-content p {
+    padding-top: 10px;
+  }
+
+  .eleventh-content {
+    padding-top: 220px;
+  }
+
+  .eleventh-content p {
+    padding-top: 10px;
+  }
+
+  .bottom-mid{
+    grid-area: bottom-mid;
+  }
+  
+  .bottom-right{
+    grid-area: bottom-right;
+  }
+
+  .left-bottom {
+    grid-area: left-bottom;
+    padding-left: 20px;
+  }
+
+  .left-bottom h2 {
+    margin-top: 40px;
+    border-bottom: 2px solid black;
+  }
+
+  .twelve-content {
+    padding-top: 20px;
+  }
+
+  .thirty-content{
+    padding-top: 91px;
+  }
+
+ 
+
+  .fourty-content {
+    padding-top: 43px;
+    padding-bottom: 50px;
+  }
+
+  .fourty-content p {
+    padding-top: 10px;
+  }
+
+  .fifty-content {
+    padding-top: 90px;
+    padding-left: 20%;
+  }
+
+  .fifty-content img {
+    display: inline;
+  }
+  .mid-bottom {
+    grid-area: mid-bottom;
+  }
+  .right-bottom {
+    grid-area: right-bottom;
+  }
